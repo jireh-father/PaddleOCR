@@ -33,7 +33,7 @@ def gen_det_label(root_path, input_dir, out_label, languages=['Korean', 'Latin']
             label = []
             with open(
                     os.path.join(input_dir, label_file), 'r',
-                    encoding='utf-8') as f:
+                    encoding='utf8', errors="ignore") as f:
                 for line in f.readlines():
                     tmp = line.strip("\n\r").replace("\xef\xbb\xbf",
                                                      "").split(',')
