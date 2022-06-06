@@ -14,6 +14,7 @@
 import os
 import argparse
 import json
+import glob
 
 
 def gen_rec_label(input_path, out_label):
@@ -29,7 +30,12 @@ def gen_rec_label(input_path, out_label):
 def gen_det_label(root_path, input_dir, out_label, languages=['Korean', 'Latin']):
     with open(out_label, 'w', encoding='utf-8') as out_file:
         for label_file in os.listdir(input_dir):
-            img_path = os.path.join(root_path, label_file[3:-4] + ".jpg")
+            if os.path.isfile(os.path.join(root_path, label_file[3:-4]) + ".jpg"):
+                img_path = os.path.join(root_path, label_file[3:-4]) + ".jpg"
+            elif os.path.isfile(os.path.join(root_path, label_file[3:-4]) + ".png"):
+                img_path = os.path.join(root_path, label_file[3:-4]) + ".png"
+            else:
+                continue
             label = []
             with open(
                     os.path.join(input_dir, label_file), 'r',
@@ -49,7 +55,8 @@ def gen_det_label(root_path, input_dir, out_label, languages=['Korean', 'Latin']
                     label.append(result)
             if not label:
                 continue
-            out_file.write(os.path.join(os.path.basename(root_path), os.path.basename(img_path)).replace("\\", "/") + '\t' + json.dumps(
+            out_file.write(os.path.join(os.path.basename(root_path), os.path.basename(img_path)).replace("\\",
+                                                                                                         "/") + '\t' + json.dumps(
                 label, ensure_ascii=False) + '\n')
 
 
