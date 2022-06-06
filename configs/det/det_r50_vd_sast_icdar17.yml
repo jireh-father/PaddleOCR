@@ -4,7 +4,7 @@ Global:
   log_smooth_window: 20
   print_batch_step: 2
   save_model_dir: ./output/sast_r50_vd_ic15/
-  save_epoch_step: 1000
+  save_epoch_step: 100
   # evaluation is run every 5000 iterations after the 4000th iteration
   eval_batch_step: [4000, 5000]
   cal_metric_during_train: False
@@ -13,7 +13,7 @@ Global:
   save_inference_dir:
   use_visualdl: False
   infer_img:
-  save_res_path: ./output/sast_r50_vd_ic15/predicts_sast.txt
+  save_res_path: ./output/sast_r50_vd_ic17/predicts_sast.txt
 
 
 Architecture:
