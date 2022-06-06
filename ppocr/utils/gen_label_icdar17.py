@@ -27,7 +27,7 @@ def gen_rec_label(input_path, out_label):
                 out_file.write(img_path + '\t' + label + '\n')
 
 
-def gen_det_label(root_path, input_dir, out_label, languages=['Korean', 'Latin']):
+def gen_det_label(root_path, input_dir, out_label, languages=['Korean', 'Latin'], ignore_language=False):
     with open(out_label, 'w', encoding='utf-8') as out_file:
         for label_file in os.listdir(input_dir):
             if os.path.isfile(os.path.join(root_path, label_file[3:-4]) + ".jpg"):
@@ -43,7 +43,7 @@ def gen_det_label(root_path, input_dir, out_label, languages=['Korean', 'Latin']
                 for line in f.readlines():
                     tmp = line.strip("\n\r").replace("\xef\xbb\xbf",
                                                      "").split(',')
-                    if tmp[8] not in languages:
+                    if not ignore_language and tmp[8] not in languages:
                         continue
                     points = tmp[:8]
                     s = []
@@ -82,10 +82,11 @@ if __name__ == "__main__":
         type=str,
         default="out_label.txt",
         help='Output file name')
+    parser.add_argument('--ignore_language', action='store_true', default=False)
 
     args = parser.parse_args()
     if args.mode == "rec":
         print("Generate rec label")
         gen_rec_label(args.input_path, args.output_label)
     elif args.mode == "det":
-        gen_det_label(args.root_path, args.input_path, args.output_label)
+        gen_det_label(args.root_path, args.input_path, args.output_label, ignore_language=args.ignore_language)
