@@ -37,6 +37,7 @@ def gen_det_label(root_path, input_dir, out_label, languages=['Korean', 'Latin']
                 for line in f.readlines():
                     tmp = line.strip("\n\r").replace("\xef\xbb\xbf",
                                                      "").split(',')
+                    print(tmp)
                     if tmp[8] not in languages:
                         continue
                     points = tmp[:8]
