@@ -59,8 +59,8 @@ Metric:
 Train:
   dataset:
     name: SimpleDataSet
-    data_dir: ./train_data/
-    label_file_list: [./train_data/icdar2013/train_label_json.txt, ./train_data/icdar2015/train_label_json.txt, ./train_data/icdar17_mlt_latin/train_label_json.txt, ./train_data/coco_text_icdar_4pts/train_label_json.txt]
+    data_dir: ./train_data/icdar2017/images
+    label_file_list: [./train_data/icdar2017/train_icdar2017_label.txt, ./train_data/icdar2017/test_icdar2017_label.txt]
     ratio_list: [0.1, 0.45, 0.3, 0.15]
     transforms:
       - DecodeImage: # load image
@@ -84,9 +84,9 @@ Train:
 Eval:
   dataset:
     name: SimpleDataSet
-    data_dir: ./train_data/icdar2015/text_localization/
+    data_dir: ./train_data/icdar2017/images
     label_file_list:
-      - ./train_data/icdar2015/text_localization/test_icdar2015_label.txt
+      - ./train_data/icdar2017/test_icdar2015_label.txt
     transforms:
       - DecodeImage: # load image
           img_mode: BGR

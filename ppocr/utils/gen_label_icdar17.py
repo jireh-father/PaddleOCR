@@ -33,11 +33,10 @@ def gen_det_label(root_path, input_dir, out_label, languages=['Korean', 'Latin']
             label = []
             with open(
                     os.path.join(input_dir, label_file), 'r',
-                    encoding='utf8', errors="ignore") as f:
+                    encoding='utf8') as f:
                 for line in f.readlines():
                     tmp = line.strip("\n\r").replace("\xef\xbb\xbf",
                                                      "").split(',')
-                    print(tmp)
                     if tmp[8] not in languages:
                         continue
                     points = tmp[:8]
@@ -50,7 +49,7 @@ def gen_det_label(root_path, input_dir, out_label, languages=['Korean', 'Latin']
                     label.append(result)
             if not label:
                 continue
-            out_file.write(img_path + '\t' + json.dumps(
+            out_file.write(os.path.basename(img_path) + '\t' + json.dumps(
                 label, ensure_ascii=False) + '\n')
 
 
