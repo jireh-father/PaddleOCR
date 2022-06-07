@@ -61,7 +61,6 @@ Train:
     name: SimpleDataSet
     data_dir: ./train_data/synth_test/images
     label_file_list: [./train_data/synth_test/paddle_ocr_dataset.txt]
-    ratio_list: [0.8, 0.2]
     transforms:
       - DecodeImage: # load image
           img_mode: BGR
