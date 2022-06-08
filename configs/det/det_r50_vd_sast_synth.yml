@@ -84,8 +84,8 @@ Eval:
   dataset:
     name: SimpleDataSet
     data_dir: ./train_data/icdar2017/
-      label_file_list:
-        - ./train_data/icdar2017/test_icdar2017_total_label.txt
+    label_file_list:
+      - ./train_data/icdar2017/test_icdar2017_total_label.txt
     transforms:
       - DecodeImage: # load image
           img_mode: BGR
