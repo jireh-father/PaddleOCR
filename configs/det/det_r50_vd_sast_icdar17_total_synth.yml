@@ -59,7 +59,7 @@ Metric:
 Train:
   dataset:
     name: SimpleDataSet
-    data_dir: [./train_data/icdar2017/, ./train_data/synth_100k/images]
+    data_dir: ./train_data/synth_100k/images
     label_file_list: [./train_data/icdar2017/train_icdar2017_total_label.txt, ./train_data/synth_100k/paddle_ocr_dataset.txt]
     ratio_list: [0.5, 0.5]
     transforms:
