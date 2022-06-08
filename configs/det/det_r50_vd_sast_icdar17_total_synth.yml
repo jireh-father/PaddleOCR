@@ -3,7 +3,7 @@ Global:
   epoch_num: 5000
   log_smooth_window: 20
   print_batch_step: 2
-  save_model_dir: ./output/sast_r50_vd_ic17_total/
+  save_model_dir: ./output/sast_r50_vd_ic17_total_synth/
   save_epoch_step: 100
   # evaluation is run every 5000 iterations after the 4000th iteration
   eval_batch_step: [4000, 5000]
@@ -13,7 +13,7 @@ Global:
   save_inference_dir:
   use_visualdl: False
   infer_img:
-  save_res_path: ./output/sast_r50_vd_ic17_total/predicts_sast.txt
+  save_res_path: ./output/sast_r50_vd_ic17_total_synth/predicts_sast.txt
 
 
 Architecture:
@@ -59,9 +59,9 @@ Metric:
 Train:
   dataset:
     name: SimpleDataSet
-    data_dir: ./train_data/icdar2017/
-    label_file_list: [./train_data/icdar2017/train_icdar2017_total_label.txt, ./train_data/icdar2017/test_icdar2017_total_label.txt]
-    ratio_list: [0.8, 0.2]
+    data_dir: [./train_data/icdar2017/, ./train_data/synth_100k/images]
+    label_file_list: [./train_data/icdar2017/train_icdar2017_total_label.txt, ./train_data/synth_100k/paddle_ocr_dataset.txt]
+    ratio_list: [0.5, 0.5]
     transforms:
       - DecodeImage: # load image
           img_mode: BGR
