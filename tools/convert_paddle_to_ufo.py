@@ -17,6 +17,6 @@ def main(args):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Process some integers.')
-    parser.add_argument('--paddle_path', default='/Users/ilseo/Documents/infer_sast_ic17_total_i1250/det_results.txt', type=str)
-    parser.add_argument('--output_path', default='/Users/ilseo/Documents/sast_ic17_total_i1250_output.csv', type=str)
+    parser.add_argument('--paddle_path', default='/Users/ilseo/Documents/infer_sast_ic17_e101_i1250/det_results.txt', type=str)
+    parser.add_argument('--output_path', default='/Users/ilseo/Documents/sast_ic17_e101_best_i1250_output.csv', type=str)
     main(parser.parse_args())
