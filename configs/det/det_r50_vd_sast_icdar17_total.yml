@@ -4,7 +4,7 @@ Global:
   log_smooth_window: 20
   print_batch_step: 2
   save_model_dir: ./output/sast_r50_vd_ic17_total/
-  save_epoch_step: 100
+  save_epoch_step: 5
   # evaluation is run every 5000 iterations after the 4000th iteration
   eval_batch_step: [4000, 5000]
   cal_metric_during_train: False
