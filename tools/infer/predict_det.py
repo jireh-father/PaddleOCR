@@ -288,12 +288,12 @@ if __name__ == "__main__":
         save_results.append(save_pred)
         logger.info(save_pred)
         logger.info("The predict time of {}: {}".format(image_file, elapse))
-        src_im = utility.draw_text_det_res(dt_boxes, image_file)
-        img_name_pure = os.path.split(image_file)[-1]
-        img_path = os.path.join(draw_img_save,
-                                "det_res_{}".format(img_name_pure))
-        cv2.imwrite(img_path, src_im)
-        logger.info("The visualized image saved in {}".format(img_path))
+        # src_im = utility.draw_text_det_res(dt_boxes, image_file)
+        # img_name_pure = os.path.split(image_file)[-1]
+        # img_path = os.path.join(draw_img_save,
+        #                         "det_res_{}".format(img_name_pure))
+        # cv2.imwrite(img_path, src_im)
+        # logger.info("The visualized image saved in {}".format(img_path))
 
     with open(os.path.join(draw_img_save, "det_results.txt"), 'w') as f:
         f.writelines(save_results)
