@@ -295,7 +295,7 @@ if __name__ == "__main__":
         # cv2.imwrite(img_path, src_im)
         # logger.info("The visualized image saved in {}".format(img_path))
 
-    with open(os.path.basename(args.det_model_dir) + "_eval.txt", 'w') as f:
+    with open("eval_output_{}.txt".format(os.path.basename(args.det_model_dir)), 'w') as f:
         f.writelines(save_results)
         f.close()
     if args.benchmark:
