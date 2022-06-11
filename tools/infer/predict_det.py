@@ -267,8 +267,8 @@ if __name__ == "__main__":
         for i in range(2):
             res = text_detector(img)
 
-    if not os.path.exists(draw_img_save):
-        os.makedirs(draw_img_save)
+    # if not os.path.exists(draw_img_save):
+    #     os.makedirs(draw_img_save)
     save_results = []
     for image_file in image_file_list:
         img, flag = check_and_read_gif(image_file)
@@ -295,7 +295,7 @@ if __name__ == "__main__":
         # cv2.imwrite(img_path, src_im)
         # logger.info("The visualized image saved in {}".format(img_path))
 
-    with open(os.path.join(draw_img_save, "det_results.txt"), 'w') as f:
+    with open(os.path.basename(args.det_model_dir) + "_eval.txt", 'w') as f:
         f.writelines(save_results)
         f.close()
     if args.benchmark:
